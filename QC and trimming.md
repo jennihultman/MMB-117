@@ -89,8 +89,9 @@ Check that the paths are correct.
 Cutadapt [manual.](http://cutadapt.readthedocs.io)  
 
 ## Run Cutadapt to all of your files (see below option for batch job)
+515f GTGCCAGCMGCCGCGGTAA
+806r GGACTACHVGGGTWTCTAAT
  
-
 ```
 cutadapt your_1_001.fastq your_2_001.fastq -a  AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC -A ATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT  -o your_1_001_adapter_trimmed.fastq -p your_2_001_adapter_trimmed.fastq
 ```
