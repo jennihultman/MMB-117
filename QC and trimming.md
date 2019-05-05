@@ -53,14 +53,14 @@ Go to the folder that contains the raw data and make a folder called e.g. `FASTQ
 Then run the QC for the raw data and combine the results to one report using `multiqc`.  
 Can be done on the interactive nodes using `sinteractive`. 
 
-# activate the QC environment
+## activate the QC environment
 module load bioconda/3
 source activate QC_env
 
-# Run fastqc
+## Run fastqc
 fastqc ./*.fastq.gz -o FASTQC/ -t 4
 
-# Then combine the reports with multiqc
+## Then combine the reports with multiqc
 multiqc ./ --interactive
 
 # deactivate the virtual env
