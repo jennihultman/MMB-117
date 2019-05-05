@@ -25,7 +25,7 @@ cd raw_data
 cp /wrk/hultman/shared/mmb117.tar.gz .
 ```
 
-The md5 sum for the file is a7f80342e67f5199bc4ab4ca195381a0. Check that the md5 um for the file you downloaded matches by typing
+The md5 sum for the file is 1d77f950aff0ccb4773498e7ac5df689. Check that the md5 um for the file you downloaded matches by typing
 
 ```
 md5sum mmb117.tar.gz
@@ -45,7 +45,6 @@ conda create -n QC_env multiqc fastqc
 The environment can be activate with the command `source activate QC_env`. And deactivated with `source deactivate`.  
 For now, just create the environment, we will need it soon.
 
-Detach from the installations screen with `Ctrl a + d`.  
 
 ## QC and trimming
 QC for the raw data (takes few min, depending on the allocation).  
@@ -93,7 +92,7 @@ Cutadapt [manual.](http://cutadapt.readthedocs.io)
 806r GGACTACHVGGGTWTCTAAT
  
 ```
-cutadapt your_1_001.fastq your_2_001.fastq -a  AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC -A ATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT  -o your_1_001_adapter_trimmed.fastq -p your_2_001_adapter_trimmed.fastq
+cutadapt your_1_001.fastq your_2_001.fastq -q 25 -a  AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC -A ATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT  -o your_1_001_adapter_trimmed.fastq -p your_2_001_adapter_trimmed.fastq
 ```
 Then let's check the results from the trimming. Go to the folder containing the trimmed reads and make a new folder for the QC files.  
 Run FASTQC and MultiQC again.  
@@ -117,6 +116,10 @@ exit
 Copy it to your local machine as earlier and look how well the trimming went.  
 
 
+
+##Optional: run cutadapt as a batch job (script from Antti Karkman). For this you'll need list of your sample names
+
+```
 
 #!/bin/bash
 
