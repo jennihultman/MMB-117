@@ -54,18 +54,24 @@ Then run the QC for the raw data and combine the results to one report using `mu
 Can be done on the interactive nodes using `sinteractive`. 
 
 ## activate the QC environment
+```
 module load bioconda/3
 source activate QC_env
+```
 
 ## Run fastqc
+```
 fastqc ./*.fastq.gz -o FASTQC/ -t 4
+```
 
 ## Then combine the reports with multiqc
+```
 multiqc ./ --interactive
+```
 
-# deactivate the virtual env
+## deactivate the virtual env
+```
 source deactivate
-
 
 ```
 
@@ -81,6 +87,9 @@ Specify the adapter sequences that you want to trim after `-a` and `-A`. What is
 Option `-q` is for quality trimming (PHRED score).  
 Check that the paths are correct.  
 Cutadapt [manual.](http://cutadapt.readthedocs.io)  
+
+## Run Cutadapt to all of your files (see below option for batch job)
+ 
 
 ```
 cutadapt your_1_001.fastq your_2_001.fastq -a  AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC -A ATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT  -o your_1_001_adapter_trimmed.fastq -p your_2_001_adapter_trimmed.fastq
@@ -99,6 +108,30 @@ multiqc fastqc/.*adapter_trimmed.zip -n multiqc_adapter_trimmed
 multiqc * -n multiqc_all_files
 
 ```
+
+Then let's check the results from the trimming. Go to the folder containing the trimmed reads and make a new folder for the QC files.  
+Allocate some resources and then run FASTQC and MultiQC again.  
+```
+salloc -n 1 --cpus-per-task=6 --mem=3000 --nodes=1 -t 00:30:00 -p serial
+srun --pty $SHELL
+# activate the QC environment
+module load bioconda/3
+source activate QC_env
+# run QC on the trimmed reads
+fastqc ./*.fastq -o FASTQC/ -t 6
+ multiqc ./ --interactive
+# deactivate the virtual env
+source deactivate
+# log out from the computing node
+exit
+# and free the resources after the job is done
+exit
+```
+
+Copy it to your local machine as earlier and look how well the trimming went.  
+
+
+
 #!/bin/bash
 
 while read i
@@ -137,23 +170,3 @@ After the job has finished, you can see how much resources it actually used and 
 
 `seff JOBID`  
 
-Then let's check the results from the trimming. Go to the folder containing the trimmed reads and make a new folder for the QC files.  
-Allocate some resources and then run FASTQC and MultiQC again.  
-```
-salloc -n 1 --cpus-per-task=6 --mem=3000 --nodes=1 -t 00:30:00 -p serial
-srun --pty $SHELL
-# activate the QC environment
-module load bioconda/3
-source activate QC_env
-# run QC on the trimmed reads
-fastqc ./*.fastq -o FASTQC/ -t 6
- multiqc ./ --interactive
-# deactivate the virtual env
-source deactivate
-# log out from the computing node
-exit
-# and free the resources after the job is done
-exit
-```
-
-Copy it to your local machine as earlier and look how well the trimming went.  
