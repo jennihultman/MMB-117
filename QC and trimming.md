@@ -25,7 +25,7 @@ cd raw_data
 cp /wrk/hultman/shared/mmb117.tar.gz .
 ```
 
-The md5 sum for the file is xxxx. Check that the md5 um for the file you downloaded matches by typing
+The md5 sum for the file is a7f80342e67f5199bc4ab4ca195381a0. Check that the md5 um for the file you downloaded matches by typing
 
 ```
 md5sum mmb117.tar.gz
