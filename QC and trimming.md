@@ -118,6 +118,9 @@ Copy it to your local machine as earlier and look how well the trimming went.
 
 
 ##Optional: run cutadapt as a batch job (script from Antti Karkman). For this you'll need list of your sample names
+```
+ls *.fastq.gz |awk -F "-" '{print $2}'|uniq > ../sample_names.txt
+```
 
 ```
 
