@@ -88,11 +88,33 @@ Check that the paths are correct.
 Cutadapt [manual.](http://cutadapt.readthedocs.io)  
 
 ## Run Cutadapt to all of your files (see below option for batch job)
-515f GTGCCAGCMGCCGCGGTAA
-806r GGACTACHVGGGTWTCTAAT
+adapter sequences are in this case the four reverse and four forward primers. Make two fasta files with Nano
+
+forward.fasta
+
+>llum_341F_1
+CCTACGGGNGGCWGCAG
+>Illum_341F_2
+gtCCTACGGGNGGCWGCAG
+>Illum_341F_3
+agagCCTACGGGNGGCWGCAG
+>Illum_341F_4
+tagtgtCCTACGGGNGGCWGCAG
+
+reverse.fasta
+>Illum_785R_1
+GACTACHVGGGTATCTAATCC
+>Illum_785R_2
+aGACTACHVGGGTATCTAATCC
+>Illum_785R_3
+tctGACTACHVGGGTATCTAATCC
+>Illum_785R_4
+ctgagtgGACTACHVGGGTATCTAATCC
+
+Save Nano with `ctrl-o` and exit with `ctrl-x`
  
 ```
-cutadapt your_1_001.fastq your_2_001.fastq -q 25 -a  AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC -A ATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT  -o your_1_001_adapter_trimmed.fastq -p your_2_001_adapter_trimmed.fastq
+cutadapt -m 1 -e 0.2 -O 15 -g file:forward.fasta -G file:reverse.fasta-q 25 your_R1_001.fastq.gz your_R2_001.fastq.gz -o your_R1_001_adapter_trimmed.fastq -p your_R2_001_adapter_trimmed.fastq > log_cutadapt.txt
 ```
 Then let's check the results from the trimming. Go to the folder containing the trimmed reads and make a new folder for the QC files.  
 Run FASTQC and MultiQC again.  
@@ -115,6 +137,13 @@ exit
 
 Copy it to your local machine as earlier and look how well the trimming went.  
 
+## joining forward and reverse reads
+Finally we join the paired end reads with program Pear. First you'll need to install it. What was the best location for programs?
+
+```
+#change "sample" to your sample name
+/homeappl/home/hultman/appl_taito/pear-0.9.10-bin-64/pear-0.9.10-bin-64 -y 400M -j 2 -f sample_R1.adapter_trim.fastq -r sample_R2.adapter_trim.fastq -o sample.pear
+```
 
 
 ##Optional: run cutadapt as a batch job (script from Antti Karkman). For this you'll need list of your sample names
