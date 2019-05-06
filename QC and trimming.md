@@ -38,7 +38,8 @@ tar -xzvf mmb117.tar.gz
 ## Make mapping file 
 For the sequence analysis pipeline we need a mapping file with information on the sample name and corresponding fastq-files. Use Nano to make the file.
 
-**FastQC & MultiQC**  
+#FastQC & MultiQC
+
 Two programs for sequence data quality control. Both will be installed using Bioconda package management tool that can be found from CSC.  
 When using Bioconda at CSC, everything needs to be installed in virtual enviroments. You can create the virtual environment called `QC_env` and install the packages with one command.  
 ```
@@ -47,7 +48,6 @@ conda create -n QC_env multiqc fastqc
 ```
 
 The environment can be activate with the command `source activate QC_env`. And deactivated with `source deactivate`.  
-For now, just create the environment, we will need it soon.
 
 
 ## QC and trimming
@@ -83,6 +83,10 @@ Have a look at the QC report with your favorite browser.
 
 After inspecting the output, it should be clear that we need to do some trimming.  
 
+
+
+# Run Cutadapt to all of your files (see below option for batch job)
+
 Make a folder for the trimmed data (trimmed_data).  
 
 Specify the adapter sequences that you want to trim after `-a` and `-A`. What is the difference with `-a` and `-A`?
@@ -91,8 +95,16 @@ Option `-q` is for quality trimming (PHRED score).
 Check that the paths are correct.  
 Cutadapt [manual.](http://cutadapt.readthedocs.io)  
 
-# Run Cutadapt to all of your files (see below option for batch job)
-adapter sequences are in this case the four reverse and four forward primers. Make two fasta files with Nano
+When looking at the cutadapt manual, which flags (=“-letter”) are for
+
+Length trimming	 		
+3’ adapter 			
+Paired end 3’adapter	
+Quality score			
+Output name		
+Paired end output	
+
+Adapter sequences are in this case the four reverse and four forward primers. Make two fasta files with Nano
 
 forward.fasta
 
