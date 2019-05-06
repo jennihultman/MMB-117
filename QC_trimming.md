@@ -74,7 +74,7 @@ multiqc ./ --interactive
 
 ## deactivate the virtual env
 ```
-source deactivate
+conda deactivate
 
 ```
 
