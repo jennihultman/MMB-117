@@ -38,7 +38,7 @@ tar -xzvf mmb117.tar.gz
 ## Make mapping file 
 For the sequence analysis pipeline we need a mapping file with information on the sample name and corresponding fastq-files. Use Nano to make the file.
 
-#FastQC & MultiQC
+# FastQC & MultiQC
 
 Two programs for sequence data quality control. Both will be installed using Bioconda package management tool that can be found from CSC.  
 When using Bioconda at CSC, everything needs to be installed in virtual enviroments. You can create the virtual environment called `QC_env` and install the packages with one command.  
