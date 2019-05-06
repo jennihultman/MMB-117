@@ -34,6 +34,10 @@ And then unpack the tar.gz file
 ```
 tar -xzvf mmb117.tar.gz
 ``` 
+
+## Make mapping file 
+
+
 **FastQC & MultiQC**  
 Two programs for sequence data quality control. Both will be installed using Bioconda package management tool that can be found from CSC.  
 When using Bioconda at CSC, everything needs to be installed in virtual enviroments. You can create the virtual environment called `QC_env` and install the packages with one command.  
@@ -129,10 +133,6 @@ fastqc ./*.fastq -o FASTQC/ -t 4
  multiqc ./ --interactive
 # deactivate the virtual env
 source deactivate
-# log out from the computing node
-exit
-# and free the resources after the job is done
-exit
 ```
 
 Copy it to your local machine as earlier and look how well the trimming went.  
@@ -145,49 +145,16 @@ Finally we join the paired end reads with program Pear. First you'll need to ins
 /homeappl/home/hultman/appl_taito/pear-0.9.10-bin-64/pear-0.9.10-bin-64 -y 400M -j 2 -f sample_R1.adapter_trim.fastq -r sample_R2.adapter_trim.fastq -o sample.pear
 ```
 
-
-##Optional: run cutadapt as a batch job (script from Antti Karkman). For this you'll need list of your sample names
-```
-ls *.fastq.gz |awk -F "-" '{print $2}'|uniq > ../sample_names.txt
-```
+## running Cutadapt as batch job
 
 ```
-
 #!/bin/bash
 
 while read i
 do
-        cutadapt  -a CTGTCTCTTATACACATCTCCGAGCCCACGAGAC -A CTGTCTCTTATACACATCTGACGCTGCCGACGA -q 28 -O 10 \
-        -o ../trimmed_data/$i"_R1_trimmed.fastq" -p ../trimmed_data/$i"_R2_trimmed.fastq" \
-        *$i*_R1*.fastq.gz *$i*_R2*.fastq.gz > ../trimmed_data/$i"_trim.log"
-done < $1
+  	arr=($i)
+        cutadapt -m 1 -q 25 -O 15 -g file:forward.fasta -G file:reverse.fasta -o ${arr[1]}_trim -p ${arr[2]}_trim ${arr[1]} ${arr[2]}
+done < mapping.txt
 ```
-Then we need a batch job file to submit the job to the SLURM system. More about CSC batch jobs here: https://research.csc.fi/taito-batch-jobs  
-Make another file with text editor.
-```
-#!/bin/bash -l
-#SBATCH -J cutadapt
-#SBATCH -o cutadapt_out_%j.txt
-#SBATCH -e cutadapt_err_%j.txt
-#SBATCH -t 01:00:00
-#SBATCH -n 1
-#SBATCH -p serial
-#SBATCH --mem=50
-#
 
-module load biokit
-cd $WRKDIR/BioInfo_course/raw_data
-bash ../scripts/cutadapt.sh ../sample_names.txt
-```
-After it is done, we can submit it to the SLURM system. Do it from the course main folder, so go one step back in your folders.  
-
-`sbatch scripts/cut_batch.sh`  
-
-You can check the status of your job with:  
-
-`squeue -l -u $USER`  
-
-After the job has finished, you can see how much resources it actually used and how many billing units were consumed. `JOBID` is the number after the batch job error and output files.  
-
-`seff JOBID`  
 
