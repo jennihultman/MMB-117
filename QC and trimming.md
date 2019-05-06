@@ -139,10 +139,7 @@ source deactivate
 Copy it to your local machine as earlier and look how well the trimming went.  
 
 
-```
-**change "sample" to your sample name ja path to pear to __your__ path**
-/homeappl/home/hultman/appl_taito/pear-0.9.10-bin-64/pear-0.9.10-bin-64 -y 400M -j 2 -f sample_R1.adapter_trim.fastq -r sample_R2.adapter_trim.fastq -o sample.pear
-```
+
 
 ## running Cutadapt as batch job
 
