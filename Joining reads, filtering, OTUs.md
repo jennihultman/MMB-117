@@ -22,6 +22,7 @@ And this is so much easier with scripts. Copy script pear_batch.py from Jenni's 
 How much of the reads assembled? How about the negative control?
 
 ## Filtering reads and transforming them to fasta format
+From now on we will use usearch tools from Robert Edgar. Read more at 
 
 ```
 usearch --fastq_filter sample1_pear.assembled.fastq --threads 2 --fastq_maxee 1 --relabel @ --fastq_minlen 350 --fastaout sample1_pear.assembled.usearch.trimmed.fasta -threads 2
@@ -41,12 +42,19 @@ done < mapping.txt
 In order to analyze OTUs in samples we need to combine all of the sequence data. before this let's add sample identiier to each sequence file (pear assembled, trimmed sequences) with command `sed`
 
 ```
-
 sed "s/>@*/>barcodelabel=sample1;read=/g"  sample1_pear.assembled.vsearch.trimmed.fasta >  sample1_renamed
 ```
 Finally we can join our sequences together
-´´´
-cat *_renamed > all.assembled.trimmed.renamed.fasta
-´´´
 
-usearch -sortbylength all.16S.assembled.trimmed.renamed.fasta -minseqlength 350 -maxseqlength 480 -fastaout all.16S.assembled.trimmed.350-480.fasta
+´´´
+cat `*_renamed` > all.assembled.trimmed.renamed.fasta
+´´´
+## Find unique read sequences and abundances
+```
+usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta
+```
+## Make OTUs
+
+```
+usearch -cluster_otus uniques.fasta -otus otus.fasta -relabel OTU
+```
