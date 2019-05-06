@@ -138,10 +138,6 @@ source deactivate
 
 Copy it to your local machine as earlier and look how well the trimming went.  
 
-## joining forward and reverse reads
-Finally we join the paired end reads with program Pear. First you'll need to install it. What was the best location for programs?
-
-Pear can be found here: https://cme.h-its.org/exelixis/web/software/pear/doc.html
 
 ```
 **change "sample" to your sample name ja path to pear to __your__ path**
