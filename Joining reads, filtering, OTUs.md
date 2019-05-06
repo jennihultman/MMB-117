@@ -58,7 +58,7 @@ In case this is too memory consuming we can run its as batch job.
 
 Nano fastx.batch
 
-´´´
+```
 #!/bin/bash -l
 #SBATCH -J usearch
 #SBATCH -o usearch_out_%j.txt
@@ -71,8 +71,10 @@ Nano fastx.batch
 
 usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta
 ```
+
 ## Make OTUs
 
 ```
 usearch -cluster_otus uniques.fasta -otus otus.fasta -relabel OTU
 ```
+How many OTUs did you have? How about chimeras?
