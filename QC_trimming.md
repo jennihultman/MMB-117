@@ -164,7 +164,7 @@ Copy it to your local machine as earlier and look how well the trimming went.
 while read i
 do
   	arr=($i)
-        cutadapt -m 1 -q 25 -O 15 -g file:forward.fasta -G file:reverse.fasta -o ${arr[1]}_trim -p ${arr[2]}_trim ${arr[1]} ${arr[2]}
+        cutadapt -m 1 -e 0.2 -q 25 -O 15 -g file:forward.fasta -G file:reverse.fasta -o ${arr[1]}_trim -p ${arr[2]}_trim ${arr[1]} ${arr[2]}
 done < mapping.txt
 ```
 
