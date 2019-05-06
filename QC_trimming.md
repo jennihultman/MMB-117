@@ -103,7 +103,7 @@ Paired end 3’adapter
 Quality score			
 Output name		
 Paired end output	
-
+```
 
 Adapter sequences are in this case the four reverse and four forward primers. Make two fasta files with Nano
 
