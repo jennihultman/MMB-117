@@ -96,13 +96,14 @@ Check that the paths are correct.
 Cutadapt [manual.](http://cutadapt.readthedocs.io)  
 
 When looking at the cutadapt manual, which flags (=“-letter”) are for
-
+```
 Length trimming	 		
 3’ adapter 			
 Paired end 3’adapter	
 Quality score			
 Output name		
 Paired end output	
+
 
 Adapter sequences are in this case the four reverse and four forward primers. Make two fasta files with Nano
 
