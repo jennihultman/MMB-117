@@ -53,6 +53,24 @@ cat `*_renamed` > all.assembled.trimmed.renamed.fasta
 ```
 usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta
 ```
+
+In case this is too memory consuming we can run its as batch job. 
+
+Nano fastx.batch
+
+´´´
+#!/bin/bash -l
+#SBATCH -J usearch
+#SBATCH -o usearch_out_%j.txt
+#SBATCH -e usearch_err_%j.txt
+#SBATCH -t 01:00:00
+#SBATCH -n 1
+#SBATCH -p serial
+#SBATCH --mem=100
+#
+
+usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta
+```
 ## Make OTUs
 
 ```
