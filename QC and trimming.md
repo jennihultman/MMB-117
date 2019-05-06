@@ -36,7 +36,7 @@ tar -xzvf mmb117.tar.gz
 ``` 
 
 ## Make mapping file 
-
+For the sequence analysis pipeline we need a mapping file with information on the sample name and corresponding fastq-files. Use Nano to make the file.
 
 **FastQC & MultiQC**  
 Two programs for sequence data quality control. Both will be installed using Bioconda package management tool that can be found from CSC.  
@@ -50,29 +50,29 @@ The environment can be activate with the command `source activate QC_env`. And d
 For now, just create the environment, we will need it soon.
 
 
-## QC and trimming
+# QC and trimming
 QC for the raw data (takes few min, depending on the allocation).  
 Go to the folder that contains the raw data and make a folder called e.g. `FASTQC` for the QC reports.  
 Then run the QC for the raw data and combine the results to one report using `multiqc`.  
 Can be done on the interactive nodes using `sinteractive`. 
 
-## activate the QC environment
+# activate the QC environment
 ```
 module load bioconda/3
 source activate QC_env
 ```
 
-## Run fastqc
+# Run fastqc
 ```
 fastqc ./*.fastq.gz -o FASTQC/ -t 4
 ```
 
-## Then combine the reports with multiqc
+# Then combine the reports with multiqc
 ```
 multiqc ./ --interactive
 ```
 
-## deactivate the virtual env
+# deactivate the virtual env
 ```
 source deactivate
 
@@ -91,7 +91,7 @@ Option `-q` is for quality trimming (PHRED score).
 Check that the paths are correct.  
 Cutadapt [manual.](http://cutadapt.readthedocs.io)  
 
-## Run Cutadapt to all of your files (see below option for batch job)
+# Run Cutadapt to all of your files (see below option for batch job)
 adapter sequences are in this case the four reverse and four forward primers. Make two fasta files with Nano
 
 forward.fasta
@@ -140,8 +140,10 @@ Copy it to your local machine as earlier and look how well the trimming went.
 ## joining forward and reverse reads
 Finally we join the paired end reads with program Pear. First you'll need to install it. What was the best location for programs?
 
+Pear can be found here: https://cme.h-its.org/exelixis/web/software/pear/doc.html
+
 ```
-#change "sample" to your sample name
+**change "sample" to your sample name ja path to pear to __your__ path**
 /homeappl/home/hultman/appl_taito/pear-0.9.10-bin-64/pear-0.9.10-bin-64 -y 400M -j 2 -f sample_R1.adapter_trim.fastq -r sample_R2.adapter_trim.fastq -o sample.pear
 ```
 
