@@ -50,29 +50,29 @@ The environment can be activate with the command `source activate QC_env`. And d
 For now, just create the environment, we will need it soon.
 
 
-# QC and trimming
+## QC and trimming
 QC for the raw data (takes few min, depending on the allocation).  
 Go to the folder that contains the raw data and make a folder called e.g. `FASTQC` for the QC reports.  
 Then run the QC for the raw data and combine the results to one report using `multiqc`.  
 Can be done on the interactive nodes using `sinteractive`. 
 
-# activate the QC environment
+## activate the QC environment
 ```
 module load bioconda/3
 source activate QC_env
 ```
 
-# Run fastqc
+## Run fastqc
 ```
 fastqc ./*.fastq.gz -o FASTQC/ -t 4
 ```
 
-# Then combine the reports with multiqc
+## Then combine the reports with multiqc
 ```
 multiqc ./ --interactive
 ```
 
-# deactivate the virtual env
+## deactivate the virtual env
 ```
 source deactivate
 
@@ -106,6 +106,7 @@ agagCCTACGGGNGGCWGCAG
 tagtgtCCTACGGGNGGCWGCAG
 
 reverse.fasta
+
 >Illum_785R_1
 GACTACHVGGGTATCTAATCC
 >Illum_785R_2
