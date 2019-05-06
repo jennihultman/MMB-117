@@ -107,6 +107,7 @@ Paired end output
 Adapter sequences are in this case the four reverse and four forward primers. Make two fasta files with Nano
 
 forward.fasta
+```
 
 >llum_341F_1
 CCTACGGGNGGCWGCAG
@@ -116,9 +117,9 @@ gtCCTACGGGNGGCWGCAG
 agagCCTACGGGNGGCWGCAG
 >Illum_341F_4
 tagtgtCCTACGGGNGGCWGCAG
-
+```
 reverse.fasta
-
+```
 >Illum_785R_1
 GACTACHVGGGTATCTAATCC
 >Illum_785R_2
@@ -127,6 +128,7 @@ aGACTACHVGGGTATCTAATCC
 tctGACTACHVGGGTATCTAATCC
 >Illum_785R_4
 ctgagtgGACTACHVGGGTATCTAATCC
+```
 
 Save Nano with `ctrl-o` and exit with `ctrl-x`
  
