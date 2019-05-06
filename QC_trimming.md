@@ -134,7 +134,7 @@ ctgagtgGACTACHVGGGTATCTAATCC
 Save Nano with `ctrl-o` and exit with `ctrl-x`
  
 ```
-cutadapt -m 1 -e 0.2 -O 15 -g file:forward.fasta -G file:reverse.fasta-q 25 your_R1_001.fastq.gz your_R2_001.fastq.gz -o your_R1_001_adapter_trimmed.fastq -p your_R2_001_adapter_trimmed.fastq > log_cutadapt.txt
+cutadapt -m 1 -e 0.2 -O 15 -g file:forward.fasta -G file:reverse.fasta -q 25 your_R1_001.fastq.gz your_R2_001.fastq.gz -o your_R1_001_adapter_trimmed.fastq -p your_R2_001_adapter_trimmed.fastq > log_cutadapt.txt
 ```
 Then let's check the results from the trimming. Go to the folder containing the trimmed reads and make a new folder for the QC files.  
 Run FASTQC and MultiQC again.  
