@@ -71,6 +71,16 @@ Nano fastx.batch
 
 usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta
 ```
+After it is done, you can submit it to the SLURM system with `sbatch` command
+
+```
+sbatch fastx.batch
+```
+You can check the status of your job with:
+
+```
+squeue -l -u $USER
+```
 View the output file `uniques.fasta` with less. What does the `size=` refer to? What is the largest size? Exit less with `q`
 
 ## Make OTUs
