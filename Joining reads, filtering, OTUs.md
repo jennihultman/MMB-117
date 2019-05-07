@@ -71,6 +71,7 @@ Nano fastx.batch
 
 usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta
 ```
+View the output file `uniques.fasta` with less. What does the `size=` refer to? What is the largest size? Exit less with `q`
 
 ## Make OTUs
 
