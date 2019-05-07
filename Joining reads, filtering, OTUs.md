@@ -17,8 +17,12 @@ After this lets check the length distribution of the reads with program Prinseq
 ```
 prinseq-lite.pl -fastq *fastq  -stats_all
 ```
-And this is so much easier with scripts. Copy script pear_batch.py from Jenni's shared folder. How did you change rights to execute the file?
+And this is so much easier with scripts. Copy script `pear_batch.py` from Jenni's shared folder. How did you change rights to execute the file?
 
+run script with
+```
+pear_batch.py mapping.txt
+```
 How much of the reads assembled? How about the negative control?
 
 ## Filtering reads and transforming them to fasta format
