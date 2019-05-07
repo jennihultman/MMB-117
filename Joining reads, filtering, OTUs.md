@@ -13,6 +13,7 @@ Now you have created `pear`environment. Activate it with
 ```
 source activate pear
 ```
+pear -f R1read.fastq_trim -r R2read.fastq_trim -o sample_pear_assembled.fastq
 
 After this lets check the length distribution of the reads with program Prinseq
 
