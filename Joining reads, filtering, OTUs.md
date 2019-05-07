@@ -9,7 +9,7 @@ module load bioconda/3
 
 conda create -n pear pear
 ```
-Now you have created `pear`environment. Activate it with
+Now you have created `pear`environment. Activate it with https://drive5.com/usearch/
 ```
 source activate pear
 ```
