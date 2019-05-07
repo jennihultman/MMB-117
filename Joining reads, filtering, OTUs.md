@@ -2,15 +2,15 @@ Now we have the quality trimmed sequence reads. Remember, garbage in, garbage ou
 
 # Joining forward and reverse reads
 
-Next we join the paired end reads with program Pear. First you'll need to install it. What was the best location for programs?
-
-Pear can be found here: https://cme.h-its.org/exelixis/web/software/pear/doc.html
+Next we join the paired end reads with program Pear. First you'll need to install it. 
 
 ```
-**change "sample" to your sample name ja path to pear to __your__ path**
-
-/homeappl/home/hultman/appl_taito/pear-0.9.10-bin-64/pear-0.9.10-bin-64 -y 400M -j 2 -f sample_R1.adapter_trim.fastq -r sample_R2.adapter_trim.fastq -o sample.pear
+module load bioconda/3
 ```
+´´´
+conda install -c bioconda pear
+```
+
 
 After this lets check the length distribution of the reads with program Prinseq
 
