@@ -9,7 +9,7 @@ module load bioconda/3
 
 conda create -n pear pear
 ```
-Now you have created `pear`environment. Activate it with https://drive5.com/usearch/
+Now you have created `pear`environment. Activate it with 
 ```
 source activate pear
 ```
@@ -31,7 +31,7 @@ run script with
 How much of the reads assembled? How about the negative control?
 
 ## Filtering reads and transforming them to fasta format
-From now on we will use usearch tools from Robert Edgar. Read more at 
+From now on we will use usearch tools from Robert Edgar. Read more at https://drive5.com/usearch/
 
 ```
 usearch --fastq_filter sample1_pear.assembled.fastq --threads 2 --fastq_maxee 1 --relabel @ --fastq_minlen 350 --fastaout sample1_pear.assembled.usearch.trimmed.fasta -threads 2
