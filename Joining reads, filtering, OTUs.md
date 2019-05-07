@@ -11,7 +11,7 @@ conda install -c bioconda pear
 ```
 Now you have created `pear`environment. Activate it with
 ```
-source activate QC_env
+source activate pear
 ```
 
 After this lets check the length distribution of the reads with program Prinseq
