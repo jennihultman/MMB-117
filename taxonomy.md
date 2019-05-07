@@ -29,13 +29,18 @@ What is the closest match to these OTUs? Bacteria or archaea? We will use naive 
 
 Before assigning taxonomy you need to download the SIlva database to your DONOTREMOVE folder. https://mothur.org/wiki/Silva_reference_files. Use `wget`command. 
 
+After that time to assign taxonomy.
+
 ```
 module load biokit
 ```
-
+type
 ```
 mothur
 ```
+to activate mothur program. In mothur type
 
+```
 classify.seqs(fasta=otus.fasta, reference=/wrk/yourusername/DONOTREMOVE/silva.nr_v132.align, taxonomy=/wrk/yourusername/DONOTREMOVE/silva.nr_v132.tax, cutoff=60, processors=4)
+```
 
