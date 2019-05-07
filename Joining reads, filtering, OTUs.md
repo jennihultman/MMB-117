@@ -26,7 +26,7 @@ And this is so much easier with scripts. Copy script `pear_batch.py` from Jenni'
 
 run script with
 ```
-pear_batch.py mapping.txt
+./pear_batch.py mapping.txt
 ```
 How much of the reads assembled? How about the negative control?
 
