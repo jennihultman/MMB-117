@@ -7,7 +7,7 @@ Next we join the paired end reads with program Pear. First you'll need to instal
 ```
 module load bioconda/3
 
-conda install -c bioconda pear
+conda create -n pear pear
 ```
 Now you have created `pear`environment. Activate it with
 ```
