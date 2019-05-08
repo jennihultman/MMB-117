@@ -19,9 +19,11 @@ nano otutab.batch
 #SBATCH -o otutab_out_%j.txt
 #SBATCH -e otutab_err_%j.txt
 #SBATCH -t 01:00:00
-#SBATCH -n 1
 #SBATCH -p serial
 #SBATCH --mem=100
+#SBATCH -n 1
+#SBATCH --nodes=1  
+#SBATCH --cpus-per-task=6
 #
 
 
