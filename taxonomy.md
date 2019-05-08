@@ -1,4 +1,8 @@
+
 ## OTU analysis
+
+First, open inteactive node with `sinteractive`
+
 As this will take some time, we will start by downloading Silva 132 database. Download it to your /wrk/$USER/DONOTREMOVE folder so you can use it in the future. https://mothur.org/wiki/Silva_reference_files. Use `wget`command. 
 
 # OTU table
@@ -44,7 +48,7 @@ classify.seqs(fasta=otus.fasta, reference=/wrk/yourusername/DONOTREMOVE/silva.nr
 ```
 # Combination of OTU table and taxonomy
 
-I do this usually in excel as I inspect the contaminants manually. So move `otutab_raw.txt` and ´otus.nr_v132.wang.taxonomy´to your computer and open in excel or other spredsheet program. Save as `otutable.txt` (tab delimited format).
+I do this usually in excel as I inspect the contaminants manually. So move `otutab_raw.txt` and `otus.nr_v132.wang.taxonomy` to your computer and open in excel or other spredsheet program. Save as `otutable.txt` (tab delimited format).
 
 # Removal of contaminants
 
@@ -55,9 +59,18 @@ There is no golden standar for this but I remove the abundant contaminants and n
 For R we'll need metadata table. Make this for your own samples and for these test samples. 
 
 # Make biom file for R
-Move the `otutable.txt` to Taito, MMB117 folder.
+Move the `otutable.txt` to Taito, MMB117 folder. For biom-tool we'll need to activate biokit 
 
 ```
-biom convert -i otutable.txt -o table.from_txt_json.biom --table-type="OTU table" --to-json
+module load biokit
+```
+
+```
+biom convert -i otutable.txt -o otutable.from_txt.biom --table-type="OTU table" 
+```
+```
+biom add-metadata -i otutable.from_txt.biom -o OTU_TABLE_added_taxa.biom --observation-metadata-fp otus.nr_v132.wang.taxonomy --sc-separated taxonomy --observation-header OTUID,taxonomy
+```
+```
 summarize_taxa.py -i table.from_txt_json.biom 
 ```
