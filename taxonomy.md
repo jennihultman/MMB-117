@@ -68,11 +68,13 @@ module load biokit
 ```
 
 ```
-biom convert -i otutable.txt -o otutable.from_txt.biom --table-type="OTU table" 
+biom convert -i otutab_raw.txt -o otutable.biom --table-type="OTU table"
 ```
 ```
-biom add-metadata -i otutable.from_txt.biom -o OTU_TABLE_added_taxa.biom --observation-metadata-fp otus.nr_v132.wang.taxonomy --sc-separated taxonomy --observation-header OTUID,taxonomy
+biom add-metadata -i otutable.biom -o otutable_added_taxa.biom --observation-metadata-fp otus.nr_v128.wang.taxonomy --sc-separated taxonomy --observation-header OTUID,taxonomy
 ```
+module load qiime/1.8.0
+
 ```
-summarize_taxa.py -i table.from_txt_json.biom 
+summarize_taxa.py -i otutable_added_taxa.biom 
 ```
