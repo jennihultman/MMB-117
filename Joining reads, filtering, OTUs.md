@@ -76,9 +76,11 @@ Nano fastx.batch
 #SBATCH -n 1
 #SBATCH -p serial
 #SBATCH --mem=100
+#SBATCH --nodes=1  
+#SBATCH --cpus-per-task=6
 #
 
-usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta
+usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta -threads 6
 ```
 After it is done, you can submit it to the SLURM system with `sbatch` command
 
