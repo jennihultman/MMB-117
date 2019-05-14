@@ -68,14 +68,13 @@ module load biokit
 ```
 
 ```
-biom convert -i otutab_raw.txt -o otutable.biom --table-type="OTU table" --process-obs-metadata taxonomy
+biom convert -i otutab_fromexcel.txt -o otutable.biom --table-type="OTU table" --process-obs-metadata taxonomy
 
 ```
-```
-biom add-metadata -i otutable.biom -o otutable_added_taxa.biom --observation-metadata-fp otus.nr_v128.wang.taxonomy --sc-separated taxonomy --observation-header OTUID,taxonomy
+
 ```
 module load qiime/1.8.0
-
+```
 ```
 summarize_taxa.py -i otutable_added_taxa.biom 
 ```
