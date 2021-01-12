@@ -1,6 +1,6 @@
 # Quality control and filtering
 
-Log into Taito, either with ssh (Mac/Linux) or PuTTy (Windows)
+Log into Puhti, either with ssh (Mac/Linux) or PuTTy (Windows)
 
 open interactive node
 ```
