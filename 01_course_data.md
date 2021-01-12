@@ -1,6 +1,6 @@
 ## Working with your own data
 
-Sequences have arrived and they can be found from `/wrk/hultman/shared/MMB117_SEQS`
+Sequences have arrived and they can be found from `/wrk/hultman/shared/MMB117_SEQS` FIX THIS
 
 Do you want to analyze your own samples or all of them to compare your samples to others? Are the bog samples similar or different?
 
