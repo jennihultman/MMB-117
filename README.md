@@ -5,8 +5,8 @@ Environmental microbiology course at Master's Programme in Microbiology and Micr
 ## Schedule
 
 | Time | Description |
-| Monday | Intro to Bioinformatics, Linux and CSC|
-| Tuesday | Read QC and trimming|
+| _Monday_| _Intro to Bioinformatics, Linux and CSC_|
+| _Tuesday_ | Read QC and trimming|
 | Wednesday | Joining reads, OTUs|
 | Thursday | Taxonomy, OTU analysi|s
 | Friday | Basic analysis in R|
