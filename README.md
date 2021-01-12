@@ -14,9 +14,9 @@ Environmental microbiology course at Master's Programme in Microbiology and Micr
 | __Thursday__ |  Taxonomy, OTU analysis [Quality control and trimming of data](Day1/README.md#QC-and-trimming) hands-on, [Slides](https://drive.google.com/file/d/1qA8xxK2nwSqZo2lV3BohKQA_RlHW7QBb/view?usp=sharing) (__Jenni__)|
 | __Friday__ | Basic analysis in R [Assembly](Day1/README.md#Assembly) hands-on, [Slides](https://drive.google.com/file/d/1EHsy1spesv3gIAALWWX7_1NBu9dwA37J/view?usp=sharing)(__Jenni__) |
 | __Week 2__ |  |
-| __Monday__ |  Wroking with own data (__Jenni__) |
-| __Tuesday__ | Read QC and trimming [Basic usage of computing services at CSC](https://drive.google.com/open?id=13Afjk2lDxx4kh2Jdd_5jIGrNcPqflIGJ) (__Jenni__) |
-| __Wednesday__ |  Taxonomy, OTU analysis[Installations for the course](MetagenomeInstallations.md) (__Jenni__) |
-| __Thursday__ |  Taxonomy, OTU analysis [Quality control and trimming of data](Day1/README.md#QC-and-trimming) hands-on, [Slides](https://drive.google.com/file/d/1qA8xxK2nwSqZo2lV3BohKQA_RlHW7QBb/view?usp=sharing) (__Jenni__)|
-| __Friday__ | Basic analysis in R [Assembly](Day1/README.md#Assembly) hands-on, [Slides](https://drive.google.com/file/d/1EHsy1spesv3gIAALWWX7_1NBu9dwA37J/view?usp=sharing)(__Jenni__) |
+| __Monday__ |  Working with own data (__Jenni__) |
+| __Tuesday__ | Working with own data (__Jenni__) |
+| __Wednesday__ |  Statistical analysis of microbial community data (__Eeva Eronen-Rasimus__) |
+| __Thursday__ |  Working with own data/preparation of seminar|
+| __Friday__ | Seminar, Q&A, feedback |
 
