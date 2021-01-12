@@ -9,20 +9,24 @@ sinteractive
 
 ## Data download
 First set up the course directory, make some folders and then download the data.  
-Move to work directory (wrk) at CSC and make a course directory there. Or a subfolder under a previous course folder.  
+Move to course scratch folder at CSC and make an own directory there.  
 ```
-cd $WRKDIR
-mkdir MMB117
-cd MMB117
-mkdir raw_data
+cd /scratch/project_2003853/
+mkdir _yourname_
+cd _yourname_
+mkdir training
 mkdir scripts
-mkdir trimmed_data
+mkdir own_data
 ```
 
 Download the training data (takes few minutes)  
 ```
-cd raw_data
-cp /wrk/hultman/shared/mmb117.tar.gz .
+cd training
+mkdir bacteria
+cd bacteria
+mkdir raw_data
+mkdir trimmed_data
+cp /wrk/hultman/shared/mmb117.tar.gz . ##VAIHDA
 ```
 
 The md5 sum for the file is 290101d4b5dc10415b4991e734504923. Check that the md5 um for the file you downloaded matches by typing
@@ -36,58 +40,37 @@ tar -xzvf mmb117.tar.gz
 ``` 
 
 ## Make mapping file 
-For the sequence analysis pipeline we need a mapping file with information on the sample name and corresponding fastq-files. Use Nano to make the file.
-
-# FastQC & MultiQC
-
-Two programs for sequence data quality control. Both will be installed using Bioconda package management tool that can be found from CSC.  
-When using Bioconda at CSC, everything needs to be installed in virtual enviroments. You can create the virtual environment called `QC_env` and install the packages with one command.  
+For the sequence analysis pipeline we need a mapping file with information on the sample name and corresponding fastq-files. Use Nano to make the file. You can make this manually with help of this oneliner:
 ```
-module load bioconda/3
-conda create -n QC_env multiqc fastqc
+ls *fastq > sequence_files
+
+awk 'BEGIN {FS = "-16S" } ; {print $1}'  sequence_files | sort | uniq > sample_names KORJAA!!!!
 ```
 
-The environment can be activate with the command `source activate QC_env`. And deactivated with `source deactivate`.  
+# Quality assessment with FastQC
 
+FastQC is used for sequence read quality control and can be found from CSC under the #biokit environment. You get access to all of the programs under this installation by typing 
+```
+module load biokit
+```
 
-## QC and trimming
-QC for the raw data (takes few min, depending on the allocation).  
+Then let's run FastQC for the raw data (takes few min, depending on the allocation).  
 Go to the folder that contains the raw data and make a folder called e.g. `FASTQC` for the QC reports.  
-Then run the QC for the raw data and combine the results to one report using `multiqc`.  
-Can be done on the interactive nodes using `sinteractive`. 
 
-## activate the QC environment
-```
-module load bioconda/3
-source activate QC_env
-```
 
 ## Run fastqc
 ```
-fastqc ./*.fastq.gz -o FASTQC/ -t 4
-```
-
-## Then combine the reports with multiqc
-```
-multiqc ./ --interactive
-```
-
-## deactivate the virtual env
-```
-conda deactivate
-
+fastqc ./*.fastq.gz -o FASTQC/
 ```
 
 Copy the resulting HTML file to your local machine with `scp` from the command line (Mac/Linux) or *WinSCP* on Windows.  
 Have a look at the QC report with your favorite browser.  
 
-After inspecting the output, it should be clear that we need to do some trimming.  
+After inspecting the output, it should be clear that we need to do some trimming. 
 
 
 
 # Run Cutadapt to all of your files (see below option for batch job)
-
-Make a folder for the trimmed data (trimmed_data).  
 
 Specify the adapter sequences that you want to trim after `-a` and `-A`. What is the difference with `-a` and `-A`?
 
