@@ -26,17 +26,18 @@ mkdir bacteria
 cd bacteria
 mkdir raw_data
 mkdir trimmed_data
-cp /wrk/hultman/shared/mmb117.tar.gz . ##VAIHDA
+cd raw_data
+cp /scratch/project_2002004/1_AMPLICONS/KALA_2016/FASTQ .
 ```
 
-The md5 sum for the file is 290101d4b5dc10415b4991e734504923. Check that the md5 um for the file you downloaded matches by typing
+The md5 sum for the file is 61127d6f03beca35aadcbe587a09cff8. Check that the md5 um for the file you downloaded matches by typing
 
 ```
-md5sum mmb117.tar.gz
+md5sum MMB117.tar.gz
 ```
 And then unpack the tar.gz file
 ```
-tar -xzvf mmb117.tar.gz
+tar -xzvf MMB117.tar.gz
 ``` 
 
 ## Make mapping file 
