@@ -7,14 +7,15 @@ open interactive node, that is the only place where you can do any computing
 sinteractive
 ```
 
-you should see something like thi
-
+you should see something like this
+```
 Interactive batch job is launched with following resources:
   Maximum run time (hours:min:sec): 24:00:00
   Maximum memory (MB): 2000 
   $TMPDIR size (GB): 32 
   Number of cores/threads: 1 
   Accounting project: project_2003853
+  ```
 
 ## Data download
 First set up the course directory, make some folders and then download the data.  
