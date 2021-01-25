@@ -31,7 +31,7 @@ cp /scratch/project_2002004/1_AMPLICONS/KALA_2016/FASTQ .
 ```
 
 The md5 sum for the file is 61127d6f03beca35aadcbe587a09cff8. Check that the md5 um for the file you downloaded matches by typing
-
+/MMB117.tar.gz
 ```
 md5sum MMB117.tar.gz
 ```
