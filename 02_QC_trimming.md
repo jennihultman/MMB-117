@@ -2,10 +2,19 @@
 
 Log into Puhti, either with ssh (Mac/Linux) or PuTTy (Windows)
 
-open interactive node
+open interactive node, that is the only place where you can do any computing
 ```
 sinteractive
 ```
+
+you should see something like thi
+
+Interactive batch job is launched with following resources:
+  Maximum run time (hours:min:sec): 24:00:00
+  Maximum memory (MB): 2000 
+  $TMPDIR size (GB): 32 
+  Number of cores/threads: 1 
+  Accounting project: project_2003853
 
 ## Data download
 First set up the course directory, make some folders and then download the data.  
@@ -64,7 +73,7 @@ Go to the folder that contains the raw data and make a folder called e.g. `FASTQ
 fastqc ./*.fastq.gz -o FASTQC/
 ```
 
-Copy the resulting HTML file to your local machine with `scp` from the command line (Mac/Linux) or *WinSCP* on Windows.  
+Copy the resulting HTML file to your local machine with `scp` or Cyberduck/Fugu from the command line (Mac/Linux) or *WinSCP* on Windows.  
 Have a look at the QC report with your favorite browser.  
 
 After inspecting the output, it should be clear that we need to do some trimming. 
