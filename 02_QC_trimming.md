@@ -27,25 +27,25 @@ cd bacteria
 mkdir raw_data
 mkdir trimmed_data
 cd raw_data
-cp /scratch/project_2002004/1_AMPLICONS/KALA_2016/FASTQ .
+cp /scratch/project_2003853/JENNI/MMB117.tar.gz .
 ```
 
-The md5 sum for the file is 61127d6f03beca35aadcbe587a09cff8. Check that the md5 um for the file you downloaded matches by typing
+The md5 sum for the file is 61127d6f03beca35aadcbe587a09cff8. Check that the md5 sum for the file you downloaded matches by typing
 /MMB117.tar.gz
 ```
 md5sum MMB117.tar.gz
 ```
-And then unpack the tar.gz file
+And then unpack the tar.gz file. After that check where the files are and move to raw_data if needed.
 ```
 tar -xzvf MMB117.tar.gz
 ``` 
 
 ## Make mapping file 
-For the sequence analysis pipeline we need a mapping file with information on the sample name and corresponding fastq-files. Use Nano to make the file. You can make this manually with help of this oneliner:
+For the sequence analysis pipeline we need a mapping file with information on the sample name and corresponding fastq-files. Use Nano to make the file. You can get some help from these this oneliners. What do they do?
 ```
 ls *fastq > sequence_files
 
-awk 'BEGIN {FS = "-16S" } ; {print $1}'  sequence_files | sort | uniq > sample_names KORJAA!!!!
+awk 'BEGIN {FS = "-Hultman" } ; {print $1}'  sequence_files | sort | uniq > sample_names
 ```
 
 # Quality assessment with FastQC
