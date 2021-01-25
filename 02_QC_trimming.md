@@ -127,21 +127,15 @@ ctgagtgGACTACHVGGGTATCTAATCC
 Save Nano with `ctrl-o` and exit with `ctrl-x`
  
 ```
-cutadapt -m 1 -e 0.2 -O 15 -g file:forward.fasta -G file:reverse.fasta -q 25 your_R1_001.fastq.gz your_R2_001.fastq.gz -o your_R1_001_adapter_trimmed.fastq -p your_R2_001_adapter_trimmed.fastq > log_cutadapt.txt
+cutadapt -g file:forward.fasta -G file:reverse.fasta -q 25 -m 50 your_R1_001.fastq.gz your_R2_001.fastq.gz -o your_R1_001_adapter_trimmed.fastq -p your_R2_001_adapter_trimmed.fastq > log_cutadapt.txt
 ```
 Then let's check the results from the trimming. Go to the folder containing the trimmed reads and make a new folder for the QC files.  
-Run FASTQC and MultiQC again.  
+Run FASTQC again.  
 
 ```
 
-# activate the QC environment
-module load bioconda/3
-source activate QC_env
 # run QC on the trimmed reads
 fastqc ./*.fastq -o FASTQC/ -t 4
- multiqc ./ --interactive
-# deactivate the virtual env
-source deactivate
 ```
 
 Copy it to your local machine as earlier and look how well the trimming went.  
@@ -157,7 +151,7 @@ Copy it to your local machine as earlier and look how well the trimming went.
 while read i
 do
   	arr=($i)
-        cutadapt -m 1 -e 0.2 -q 25 -O 15 -g file:forward.fasta -G file:reverse.fasta -o ${arr[1]}_trim -p ${arr[2]}_trim ${arr[1]} ${arr[2]}
+        cutadapt -m 50 -q 25 -g file:forward.fasta -G file:reverse.fasta -o ${arr[1]}_trim -p ${arr[2]}_trim ${arr[1]} ${arr[2]}
 done < mapping.txt
 ```
 
