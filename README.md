@@ -8,7 +8,7 @@ Environmental microbiology course at Master's Programme in Microbiology and Micr
 
 | Time | Description |
 | --- | --- |
-| __Monday__ |  Intro to Bioinformatics, Linux and CSC (__Jenni__) |
+| __Monday__ |  Intro to Bioinformatics, Linux and CSC https://github.com/jjholsa/MMB-117/blob/master/02_QC_trimming.md (__Jenni__) |
 | __Tuesday__ | Read QC and trimming (__Jenni__) |
 | __Wednesday__ |  Taxonomy, OTU analysis(__Jenni__) |
 | __Thursday__ |  Taxonomy, OTU analysis  (__Jenni__)|
