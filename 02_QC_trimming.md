@@ -269,6 +269,9 @@ Copy it to your local machine as earlier and look how well the trimming went.
 
 ## running Cutadapt as batch job
 
+# for bacteria
+
+Make this in nano and save as cutadapt_bac.sh 
 ```
 #!/bin/bash
 
@@ -278,4 +281,29 @@ do
         cutadapt -m 50 -q 25 -g file:forward.fasta -G file:reverse.fasta -o ${arr[1]}_trim -p ${arr[2]}_trim ${arr[1]} ${arr[2]}
 done < mapping.txt
 ```
+You do not have right for the task, so give them with chmod
 
+```
+chmod 777 cutadapt_bac.sh
+
+```
+After that make sure you are in the folder with your mapping file (names as *mapping.txt*), primer files and raw reads. 
+
+Then run the task in the interactive node
+
+```
+./cutadapt_bac.sh
+
+```
+
+# For fungi
+
+```
+#!/bin/bash
+
+while read i
+do
+  	arr=($i)
+        cutadapt -g file:forward.fasta -b file:reverse_rc.fasta -G file:reverse.fasta -B file:forward_rc.fasta --max-n 0 --minimum-length 50 -n 2 your_R1_001.fastq.gz your_R2_001.fastq.gz -o your_R1_001_adapter_trimmed.fastq -p your_R2_001_adapter_trimmed.fastq > log_cutadapt.txt
+done < mapping.txt
+```
