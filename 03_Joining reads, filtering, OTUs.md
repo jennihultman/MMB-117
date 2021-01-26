@@ -102,6 +102,10 @@ squeue -l -u $USER
 ```
 View the output file `uniques.fasta` with less. What does the `size=` refer to? What is the largest size? Exit less with `q`
 
+## Remove chimera
+
+JENNI add here
+
 ## Make OTUs
 
 ```
