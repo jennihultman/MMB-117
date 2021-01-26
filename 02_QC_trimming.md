@@ -308,3 +308,5 @@ do
         cutadapt -g file:forward.fasta -b file:reverse_rc.fasta -G file:reverse.fasta -B file:forward_rc.fasta --max-n 0 --minimum-length 50 -n 2 your_R1_001.fastq.gz your_R2_001.fastq.gz -o your_R1_001_adapter_trimmed.fastq -p your_R2_001_adapter_trimmed.fastq > log_cutadapt.txt
 done < mapping.txt
 ```
+
+Run as you did for bacteria. NB! Mapping file for fungi is NOT the same as for bacteria. Why?
