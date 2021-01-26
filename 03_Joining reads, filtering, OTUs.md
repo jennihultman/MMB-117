@@ -70,7 +70,7 @@ vsearch --sortbylength all.bacteria.trimmed.renamed.fasta --maxseqlength 530 --m
 
 ## Find unique read sequences and abundances
 ```
-vsearch --derep_fulllength all.bacteria.trimmed.350-530.fasta --threads 2 --minuniquesize 2 --sizeout --output 16S_uniques.fa
+vsearch --derep_fulllength all.bacteria.trimmed.350-530.fasta --threads 2 --minuniquesize 2 --sizeout --output bac_uniques.fa
 ```
 
 In case this is too memory consuming we can run its as batch job. 
@@ -108,13 +108,17 @@ View the output file `bac_uniques.fasta` with less. What does the `size=` refer 
 
 ## Remove chimera
 
-JENNI add here
+Number of chimeric sequences can be even 25% in amplicon studies. There are tens of different algoritms available and on this course we will use de novo chimera detection program uchime by Robert Edgar. Read more here https://drive5.com/usearch/manual/cmd_uchime3_denovo.html. 
 
-vsearch --uchime_ref bac_uniques.fasta --db /scratch/project_2003853/JENNI/DATABASES/silva.gold.align --nonchimeras  16S_nochimeras.fasta --uchimeout 16S_uchime.out --threads 2
+```
+vsearch --uchime3_denovo bac_uniques.fa --nonchimeras 16S_nochimeras.fasta --uchimeout 16S_uchime.out --threads 2
+
+```
+How much did you have chimeras?
 
 ## Make OTUs
 
 ```
-usearch -cluster_otus uniques.fasta -otus otus.fasta -relabel OTU
+vsearch --cluster_fast 16S_nochimeras.fasta --id 0.97 --centroids 16S_OTUs.fasta --relabel OTU --uc 16Sclusters.uc
 ```
-How many OTUs did you have? How about chimeras?
+How many OTUs did you have? 
