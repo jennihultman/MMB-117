@@ -1,4 +1,4 @@
-Now we have the quality trimmed sequence reads. Remember, garbage in, garbage out. To keep things clear, move the trimmed reads to your *trimmed* folder. All tasks todat will be performed there. Remember where the folder is?
+Now we have the quality trimmed sequence reads. Remember, garbage in, garbage out. To keep things clear, move the trimmed reads to your *trimmed* folder. All tasks today will be performed there. Remember where the folder is? If you have already moved them, you can continue.
 
 
 # Joining forward and reverse reads
@@ -49,7 +49,7 @@ done < mapping.txt
 ```
 
 ## Add sample name to sequences
-In order to analyze OTUs in samples we need to combine all of the sequence data. before this let's add sample identiier to each sequence file (pear assembled, trimmed sequences) with command `sed`. NB! Instead of sample1 have unique sample identifier for each sample. 
+In order to analyze OTUs in samples we need to combine all of the sequence data. before this let's add sample identiier to each sequence file (pear assembled, trimmed sequences) with command `sed`. NB! Instead of sample1 have an unique sample identifier for each sample. 
 
 ```
 sed "s/>@*/>barcodelabel=sample1;read=/g"  sample1_pear.assembled.vsearch.trimmed.fasta >  sample1_renamed
@@ -57,11 +57,11 @@ sed "s/>@*/>barcodelabel=sample1;read=/g"  sample1_pear.assembled.vsearch.trimme
 Finally we can join our sequences together
 
 ´´´
-cat `*_renamed` > all.assembled.trimmed.renamed.fasta
+cat `*_renamed` > all.bacteria.trimmed.renamed.fasta
 ´´´
 ## Find unique read sequences and abundances
 ```
-usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta
+vsearch -fastx_uniques all.bacteria.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta
 ```
 
 In case this is too memory consuming we can run its as batch job. 
