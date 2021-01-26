@@ -15,7 +15,7 @@ Now you have created `pear`environment. Activate it with
 source activate pear
 ```
 ```
-pear -f R1read.fastq_trim -r R2read.fastq_trim -o sample_pear_assembled.fastq
+pear -f R1read.fastq_trim -r R2read.fastq_trim -o sample_pear
 ```
 
 After this lets check the length distribution of the reads with program Prinseq
@@ -32,10 +32,10 @@ run script with
 How much of the reads assembled? How about the negative control?
 
 ## Filtering reads and transforming them to fasta format
-From now on we will use usearch tools from Robert Edgar. Read more at https://drive5.com/usearch/
+From now on we will use vsearch tools wich are free version of usearch from Robert Edgar. Read more at https://drive5.com/usearch/ and https://manpages.debian.org/testing/vsearch/vsearch.1.en.html
 
 ```
-vsearch --fastq_filter sample1_pear.assembled.fastq --threads 2 --fastq_maxee 1 --relabel @ --fastq_minlen 350 --fastaout sample1_pear.assembled.usearch.trimmed.fasta -threads 2
+vsearch --fastq_filter sample_pear --fastq_maxee 1 --relabel @ --fastq_minlen 350 --fastaout sample1_pear.assembled.vsearch.trimmed.fasta
 ```
 And with script: 
 ```
@@ -44,12 +44,12 @@ And with script:
 while read i
 do
         arr=($i)
-        usearch --fastq_filter ${arr[0]}_pear.assembled.fastq --threads 2 --fastq_maxee 1 --relabel @ --fastq_minlen 350 --fastaout ${arr[0]}_pear.assembled.usearch.trimmed.fasta -threads 2
+        vsearch --fastq_filter ${arr[0]}_pear.assembled.fastq --fastq_maxee 1 --relabel @ --fastq_minlen 350 --fastaout ${arr[0]}_pear.assembled.vsearch.trimmed.fasta
 done < mapping.txt
 ```
 
 ## Add sample name to sequences
-In order to analyze OTUs in samples we need to combine all of the sequence data. before this let's add sample identiier to each sequence file (pear assembled, trimmed sequences) with command `sed`
+In order to analyze OTUs in samples we need to combine all of the sequence data. before this let's add sample identiier to each sequence file (pear assembled, trimmed sequences) with command `sed`. NB! Instead of sample1 have unique sample identifier for each sample. 
 
 ```
 sed "s/>@*/>barcodelabel=sample1;read=/g"  sample1_pear.assembled.vsearch.trimmed.fasta >  sample1_renamed
