@@ -167,7 +167,7 @@ cp /scratch/project_2003853/JENNI/MMB117_fungi.tar.gz .
 The md5 sum for the file is 9a50dbcc998d90fafd055ea755911b7b. Check that the md5 sum for the file you downloaded matches by typing
 /MMB117_fungi.tar.gz
 ```
-md5sum MMB117.tar.gz
+md5sum MMB117_fungi.tar.gz
 ```
 And then unpack the tar.gz file. After that check where the files are and move to raw_data if needed.
 ```
