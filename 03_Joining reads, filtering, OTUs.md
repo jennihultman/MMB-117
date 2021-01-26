@@ -59,9 +59,18 @@ Finally we can join our sequences together
 ´´´
 cat `*_renamed` > all.bacteria.trimmed.renamed.fasta
 ´´´
+
+## Length trimming
+Next we will remove the reads that are too short or long
+
+```
+vsearch --sortbylength all.bacteria.trimmed.renamed.fasta --maxseqlength 530 --minseqlength 350 --output all.bacteria.trimmed.350-530.fasta
+
+```
+
 ## Find unique read sequences and abundances
 ```
-vsearch -fastx_uniques all.bacteria.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta
+vsearch --derep_fulllength all.bacteria.trimmed.350-530.fasta --threads 2 --minuniquesize 2 --sizeout --output 16S_uniques.fa
 ```
 
 In case this is too memory consuming we can run its as batch job. 
