@@ -88,7 +88,7 @@ Nano fastx.batch
 #SBATCH --cpus-per-task=6
 #
 
-usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout uniques.fasta -threads 6
+usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout bac_uniques.fasta -threads 6
 ```
 After it is done, you can submit it to the SLURM system with `sbatch` command
 
@@ -100,11 +100,13 @@ You can check the status of your job with:
 ```
 squeue -l -u $USER
 ```
-View the output file `uniques.fasta` with less. What does the `size=` refer to? What is the largest size? Exit less with `q`
+View the output file `bac_uniques.fasta` with less. What does the `size=` refer to? What is the largest size? Exit less with `q`
 
 ## Remove chimera
 
 JENNI add here
+
+vsearch --uchime_ref bac_uniques.fasta --db /scratch/project_2003853/JENNI/DATABASES/silva.gold.align --nonchimeras  16S_nochimeras.fasta --uchimeout 16S_uchime.out --threads 2
 
 ## Make OTUs
 
