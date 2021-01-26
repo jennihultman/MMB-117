@@ -298,6 +298,7 @@ Then run the task in the interactive node
 
 ### For fungi
 
+name as cutadapt_fun.sh
 ```
 #!/bin/bash
 
