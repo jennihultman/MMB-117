@@ -1,4 +1,4 @@
-Now we have the quality trimmed sequence reads. Remember, garbage in, garbage out. 
+Now we have the quality trimmed sequence reads. Remember, garbage in, garbage out. To keep things clear, move the trimmed reads to your *trimmed* folder. All tasks todat will be performed there. Remember where the folder is?
 
 
 # Joining forward and reverse reads
@@ -35,7 +35,7 @@ How much of the reads assembled? How about the negative control?
 From now on we will use usearch tools from Robert Edgar. Read more at https://drive5.com/usearch/
 
 ```
-usearch --fastq_filter sample1_pear.assembled.fastq --threads 2 --fastq_maxee 1 --relabel @ --fastq_minlen 350 --fastaout sample1_pear.assembled.usearch.trimmed.fasta -threads 2
+vsearch --fastq_filter sample1_pear.assembled.fastq --threads 2 --fastq_maxee 1 --relabel @ --fastq_minlen 350 --fastaout sample1_pear.assembled.usearch.trimmed.fasta -threads 2
 ```
 And with script: 
 ```
