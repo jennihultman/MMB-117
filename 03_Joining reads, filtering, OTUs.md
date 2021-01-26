@@ -23,8 +23,9 @@ After this lets check the length distribution of the reads with program Prinseq
 ```
 prinseq-lite.pl -fastq *fastq  -stats_all
 ```
-And this is so much easier with scripts. Copy script `pear_batch.py` from Jenni's shared folder. How did you change rights to execute the file?
-
+And this is so much easier with scripts. Copy script `pear_batch.py` from Jenni's folder `/scratch/project_2003853/JENNI`
+. How did you change rights to execute the file?
+/
 run script with
 ```
 ./pear_batch.py mapping.txt
@@ -122,3 +123,12 @@ How much did you have chimeras?
 vsearch --cluster_fast 16S_nochimeras.fasta --id 0.97 --centroids 16S_OTUs.fasta --relabel OTU --uc 16Sclusters.uc
 ```
 How many OTUs did you have? 
+
+## Map trimmed reads to OTUs
+
+Last we want to know in which samples the OTUs were present and in which abundance. For this we need to map the reads back to the OTUs. 
+
+
+```
+vsearch --usearch_global all.bacteria.trimmed.350-530.fasta --db 16S_OTUs.fasta --strand plus --id 0.97 --uc 16S_OTUtab.uc --otutabout 16S_OTUs.txt
+```
