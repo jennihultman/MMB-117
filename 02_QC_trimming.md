@@ -142,7 +142,7 @@ fastqc ./*.fastq -o FASTQC/ -t 4
 Copy it to your local machine as earlier and look how well the trimming went.
 
 
-## Next same for fungi
+# Next same for fungi
 
 Remeber that we have both bacteria and fungi. What was the diffeence how they were prepped in the lab? ANd what was the region used and was there something that differed in fundi (hint. what were we supposed to see on the gel electrophoresis?)
 
@@ -269,7 +269,7 @@ Copy it to your local machine as earlier and look how well the trimming went.
 
 ## running Cutadapt as batch job
 
-# for bacteria
+#### for bacteria
 
 Make this in nano and save as cutadapt_bac.sh 
 ```
@@ -296,7 +296,7 @@ Then run the task in the interactive node
 
 ```
 
-# For fungi
+### For fungi
 
 ```
 #!/bin/bash
