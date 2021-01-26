@@ -81,10 +81,11 @@ Nano fastx.batch
 #!/bin/bash -l
 #SBATCH --job-name=vsearch
 #SBATCH --account=project_2003853
-#SBATCH -o vsearch_out_%j.txt
-#SBATCH -e vsearch_err_%j.txt
-#SBATCH -t 01:00:00
-#SBATCH --mem=100
+#SBATCH --partition=small
+#SBATCH --output=vsearch_out_%j.txt
+#SBATCH --error=vsearch_err_%j.txt
+#SBATCH --time=01:00:00
+#SBATCH --mem-per-cpu=100
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=6
 #
