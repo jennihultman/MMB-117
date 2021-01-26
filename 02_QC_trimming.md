@@ -305,7 +305,7 @@ name as cutadapt_fun.sh
 while read i
 do
   	arr=($i)
-        cutadapt -g file:forward.fasta -b file:reverse_rc.fasta -G file:reverse.fasta -B file:forward_rc.fasta --max-n 0 --minimum-length 50 -n 2 your_R1_001.fastq.gz your_R2_001.fastq.gz -o your_R1_001_adapter_trimmed.fastq -p your_R2_001_adapter_trimmed.fastq > log_cutadapt.txt
+        cutadapt -g file:forward.fasta -b file:reverse_rc.fasta -G file:reverse.fasta -B file:forward_rc.fasta --max-n 0 --minimum-length 50 -n 2 -o ${arr[1]}_trim -p ${arr[2]}_trim ${arr[1]} ${arr[2]}
 done < mapping.txt
 ```
 
