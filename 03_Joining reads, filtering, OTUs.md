@@ -79,14 +79,17 @@ Nano fastx.batch
 
 ```
 #!/bin/bash -l
-#SBATCH -J usearch
-#SBATCH -o usearch_out_%j.txt
-#SBATCH -e usearch_err_%j.txt
+#SBATCH --job-name=vsearch
+#SBATCH --account=project_2003853
+#SBATCH -o vsearch_out_%j.txt
+#SBATCH -e vsearch_err_%j.txt
 #SBATCH -t 01:00:00
 #SBATCH --mem=100
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=6
 #
+
+module load biokit
 
 usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout bac_uniques.fasta -threads 6
 ```
