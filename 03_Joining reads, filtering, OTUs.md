@@ -14,8 +14,14 @@ Now you have created `pear`environment. Activate it with
 ```
 source activate pear
 ```
+
+EXAMPLE of pear command (don't run this):
 ```
 pear -f R1read.fastq_trim -r R2read.fastq_trim -o sample_pear
+```
+
+```
+./batch_pear.py mapping.txt
 ```
 
 After this lets check the length distribution of the reads with program Prinseq
@@ -27,9 +33,8 @@ And this is so much easier with scripts. Copy script `batch_pear.py` from Jenni'
 . How did you change rights to execute the file?
 /
 run script with
-```
-./batch_pear.py mapping.txt
-```
+
+
 How much of the reads assembled? How about the negative control?
 
 ## Filtering reads and transforming them to fasta format
