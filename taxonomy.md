@@ -3,65 +3,41 @@
 
 First, open inteactive node with `sinteractive`
 
-As this will take some time, we will start by downloading Silva 132 database. Download it to your /wrk/$USER/DONOTREMOVE folder so you can use it in the future. https://mothur.org/wiki/Silva_reference_files. Use `wget`command. 
 
-# OTU table
-We have now OTUs but how abundant are they in your samples? For this we need to make OTU table. The usearch command `otutab` requires plenty of memory so we need to run it as batch job. 
+We have now OTUs but how abundant are they in your samples? For this we need the OTU table you made yesterday. In your folder you should have 16S_OTUs.fasta and ITS_OTUs.fasta which are the files with the centroid sequences from each OTU (ie. representative seuqnce) and 16S_OTUs.txt and ITS_OTUs.txt which are OTU tables. View OTU table with less. Are there some OTUs that are really abundant in all samples? Some that are in some samples alone?
 
-Do this in the folder where you have `otus.fasta` from Tuesday.
-```
-nano otutab.batch
-```
-
-```
-#!/bin/bash -l
-#SBATCH -J otutab
-#SBATCH -o otutab_out_%j.txt
-#SBATCH -e otutab_err_%j.txt
-#SBATCH -t 01:00:00
-#SBATCH -p serial
-#SBATCH --mem=100
-#SBATCH -n 1
-#SBATCH --nodes=1  
-#SBATCH --cpus-per-task=6
-#
-
-
-usearch -otutab all.assembled.trimmed.renamed.fasta -otus otus.fasta -otutabout otutab_raw.txt
-
-```
 # How about taxonomy? 
 
-What is the closest match to these OTUs? Bacteria or archaea? We will use naive abyesian classifier from mothur package and Silva SSU rRNA database.
+What is the closest match to these OTUs? Which bacteria and fungi? We will use naive abyesian classifier from mothur package and Silva SSU rRNA database for bacteria (https://www.arb-silva.de/documentation/release-138/) and UNITE database for fungi (https://unite.ut.ee/).
 
-After that time to assign taxonomy.
+So time to assign taxonomy. Mothur is in biokit environment, open it with:
 
 ```
 module load biokit
 ```
-type
+Go to first to your training/bacteria/trimmed folder. Remember how that was done? Then type
 ```
 mothur
 ```
 to activate mothur program. In mothur type
 
 ```
-classify.seqs(fasta=otus.fasta, reference=/wrk/yourusername/DONOTREMOVE/silva.nr_v132.align, taxonomy=/wrk/yourusername/DONOTREMOVE/silva.nr_v132.tax, cutoff=60, processors=4)
+classify.seqs(fasta=16S_OTUs.fasta, reference=/scratch/project_2003853/JENNI/silva.nr_v138.align, taxonomy=/scratch/project_2003853/JENNI/silva.nr_v138.tax, cutoff=60, processors=4)
 ```
 # Combination of OTU table and taxonomy
 
-I do this usually in excel as I inspect the contaminants manually. So move `otutab_raw.txt` and `otus.nr_v132.wang.taxonomy` to your computer and open in excel or other spredsheet program. Save as `otutable.txt` (tab delimited format).
+I do this usually in excel as I inspect the contaminants manually. So move `16S_OTUs.txt` and `otus.nr_v138.wang.taxonomy` to your computer and open in excel or other spredsheet program. Save as `otutable.txt` (tab delimited format).
 
 # Removal of contaminants
 
 There is no golden standar for this but I remove the abundant contaminants and not the ones found in one sample only. **it is important to write how contaminants were removed to the report/manuscript/thesis**
 
-# Make metadata file
+# Make metadata file (only for real samples from Viikki)
 
 For R we'll need metadata table. Make this for your own samples and for these test samples. 
 
 # Make biom file for R
-Move the `otutable.txt` to Taito, MMB117 folder. For biom-tool we'll need to activate biokit 
+Move the `otutable.txt` to Puhti, to your folder. For biom-tool we'll need to activate biokit 
 
 ```
 module load biokit
@@ -70,11 +46,4 @@ module load biokit
 ```
 biom convert -i otutab_fromexcel.txt -o otutable.biom --table-type="OTU table" --process-obs-metadata taxonomy
 
-```
-
-```
-module load qiime/1.8.0
-```
-```
-summarize_taxa.py -i otutable_added_taxa.biom 
 ```
