@@ -33,12 +33,19 @@ run script with
 How much of the reads assembled? How about the negative control?
 
 ## Filtering reads and transforming them to fasta format
-From now on we will use vsearch tools wich are free version of usearch from Robert Edgar. Read more at https://drive5.com/usearch/ and https://manpages.debian.org/testing/vsearch/vsearch.1.en.html
+From now on we will use vsearch tools wich are free version of usearch from Robert Edgar. Read more at https://drive5.com/usearch/ and https://manpages.debian.org/testing/vsearch/vsearch.1.en.html. Vsearch work in biokit environment which you can load by typing
+
+
+```
+module load biokit
+```
+then run vsearch:
 
 ```
 vsearch --fastq_filter sample_pear --fastq_maxee 1 --relabel @ --fastq_minlen 350 --fastaout sample1_pear.assembled.vsearch.trimmed.fasta
 ```
-And with script: 
+You can also run it with script for all of you samples. Copy the script to nano and save. Make sure you have mapping file copied to the filder where you run it. Run program after giving access (remmeber how chmod worked?) by typing ./whatevernameyouhadforyourscript
+
 ```
 #!/bin/bash
 
