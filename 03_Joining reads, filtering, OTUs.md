@@ -45,12 +45,12 @@ From now on we will use vsearch tools wich are free version of usearch from Robe
 ```
 module load biokit
 ```
-then run vsearch:
+then vsearch example, don't run this:
 
 ```
 vsearch --fastq_filter sample_pear --fastq_maxee 1 --relabel @ --fastq_minlen 350 --fastaout sample1_pear.assembled.vsearch.trimmed.fasta
 ```
-You can also run it with script for all of you samples. Copy the script to nano and save. Make sure you have mapping file copied to the filder where you run it. Run program after giving access (remmeber how chmod worked?) by typing ./whatevernameyouhadforyourscript
+For your samples, run vsearch with script for all of you samples. Copy the script to nano and save as vsearch.sh. Make sure you have mapping file copied to the filder where you run it. Run program after giving access (remmeber how chmod worked?) by typing ./whatevernameyouhadforyourscript
 
 ```
 #!/bin/bash
