@@ -100,7 +100,7 @@ Nano fastx.batch
 
 module load biokit
 
-usearch -fastx_uniques all.assembled.trimmed.renamed.fasta -sizeout -relabel Uniq -fastaout bac_uniques.fasta -threads 6
+vsearch --derep_fulllength all.bacteria.trimmed.350-530.fasta --threads 2 --minuniquesize 2 --sizeout --output bac_uniques.fa
 ```
 After it is done, you can submit it to the SLURM system with `sbatch` command
 
