@@ -118,7 +118,7 @@ You can check the status of your job with:
 ```
 squeue -l -u $USER
 ```
-View the output file `bac_uniques.fasta` with less. What does the `size=` refer to? What is the largest size? Exit less with `q`
+View the output file `bac_uniques.fa` with less. What does the `size=` refer to? What is the largest size? Exit less with `q`
 
 ## Remove chimera
 
