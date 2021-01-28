@@ -35,6 +35,12 @@ mothur
 ```
 to activate mothur program. In mothur type
 
+Get more memory for the task:
+
+```
+sinteractive --account project_2003853 --time 12:00:00 --mem 3000
+
+
 ```
 classify.seqs(fasta=ITS_OTUs.fasta, reference=/scratch/project_2003853/JENNI/Unite_ITS_02/UNITEv6_sh_99.fasta, taxonomy=/scratch/project_2003853/JENNI/Unite_ITS_02/UNITEv6_sh_99.tax, cutoff=60, processors=4)
 
