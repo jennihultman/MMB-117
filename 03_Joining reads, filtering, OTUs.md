@@ -86,10 +86,10 @@ vsearch --sortbylength all.bacteria.trimmed.renamed.fasta --maxseqlength 530 --m
 ```
 vsearch --derep_fulllength all.bacteria.trimmed.350-530.fasta --threads 2 --minuniquesize 2 --sizeout --output bac_uniques.fa
 ```
+_______________________________________________________________________________________
+In case this is too memory consuming, we can optionally run its as batch job (no need for our samples). 
 
-In case this is too memory consuming we can run its as batch job. 
-
-Nano fastx.batch
+nano fastx.batch
 
 ```
 #!/bin/bash -l
@@ -118,6 +118,8 @@ You can check the status of your job with:
 ```
 squeue -l -u $USER
 ```
+________________________________________________________________________________________________________________________________
+
 View the output file `bac_uniques.fa` with less. What does the `size=` refer to? What is the largest size? Exit less with `q`
 
 ## Remove chimera
