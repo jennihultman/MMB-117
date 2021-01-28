@@ -14,7 +14,7 @@ And your `pear`environment:
 ```
 source activate pear
 ```
-```
+
 As you already know how pear works, use the script right away. Copy script `batch_pear.py` from Jenni's folder `/scratch/project_2003853/JENNI`. 
 
 run script with
