@@ -70,9 +70,9 @@ sed "s/>@*/>barcodelabel=sample1;read=/g"  sample1_pear.assembled.vsearch.trimme
 ```
 Finally we can join our sequences together
 
-´´´
+```
 cat `*_renamed` > all.bacteria.trimmed.renamed.fasta
-´´´
+```
 
 ## Length trimming
 Next we will remove the reads that are too short or long
