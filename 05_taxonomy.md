@@ -13,7 +13,7 @@ What is the closest match to these OTUs? Which bacteria and fungi? We will use n
 So time to assign taxonomy. Mothur is in biokit environment, open it with:
 
 ```
-module load biokit
+module load mothur
 ```
 ### Bacteria
 
