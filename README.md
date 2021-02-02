@@ -20,3 +20,16 @@ Environmental microbiology course at Master's Programme in Microbiology and Micr
 | __Thursday__ |  Working with own data/preparation of seminar|
 | __Friday__ | Seminar, Q&A, feedback |
 
+
+##How to quit ongoing interactive job
+
+1. if you are the interactive window, type 'exit'
+2. if you are not in the window
+
+```
+squeue -u username
+scancel TASKNUMBER
+```
+
+username= your csc username
+tasknumber= task number shown after squeue is run
