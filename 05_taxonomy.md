@@ -24,7 +24,7 @@ mothur
 to activate mothur program. In mothur type
 
 ```
-classify.seqs(fasta=16S_OTUs.fasta, reference=/scratch/project_2003853/JENNI/silva.nr_v138.align, taxonomy=/scratch/project_2003853/JENNI/silva.nr_v138.tax, cutoff=60, processors=4)
+classify.seqs(fasta=16S_OTUs.fasta, reference=/scratch/project_2003853/JENNI/silva.nr_v132.align, taxonomy=/scratch/project_2003853/JENNI/silva.nr_v132.tax, cutoff=60, processors=4)
 ```
 exith with ```quit()```
 
