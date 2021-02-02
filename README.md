@@ -28,8 +28,8 @@ Environmental microbiology course at Master's Programme in Microbiology and Micr
 
 ```
 squeue -u username
-scancel TASKNUMBER
+scancel JOBID
 ```
 
 username= your csc username
-tasknumber= task number shown after squeue is run
+JOBID = task number shown after squeue is run
