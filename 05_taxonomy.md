@@ -29,18 +29,19 @@ classify.seqs(fasta=16S_OTUs.fasta, reference=/scratch/project_2003853/JENNI/sil
 exith with ```quit()```
 
 ### Fungi
-Go to first to your training/fungi/trimmed folder. Then type
+Go to first to your training/fungi/trimmed folder. 
+
+Get more memory for the task
+
+```
+sinteractive --account project_2003853 --time 12:00:00 --mem 5000
+```
+
+open mothur and run classify.seqs command
+
 ```
 mothur
-```
-to activate mothur program. 
 
-Get more memory for the task and the open mothur
-
-```
-sinteractive --account project_2003853 --time 12:00:00 --mem 3000
-
-mothur
 
 classify.seqs(fasta=ITS_OTUs.fasta, reference=/scratch/project_2003853/JENNI/Unite_ITS_02/UNITEv6_sh_99.fasta, taxonomy=/scratch/project_2003853/JENNI/Unite_ITS_02/UNITEv6_sh_99.tax, cutoff=60, processors=4)
 
