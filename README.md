@@ -21,7 +21,7 @@ Environmental microbiology course at Master's Programme in Microbiology and Micr
 | __Friday__ | Seminar, Q&A, feedback |
 
 
-##How to quit ongoing interactive job
+## How to quit ongoing interactive job
 
 1. if you are the interactive window, type 'exit'
 2. if you are not in the window
