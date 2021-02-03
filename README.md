@@ -11,7 +11,7 @@ Environmental microbiology course at Master's Programme in Microbiology and Micr
 | __Monday__ |  Intro to Bioinformatics, Linux and CSC (__Jenni__) |
 | __Tuesday__ | Read QC and trimming [QC](https://github.com/jjholsa/MMB-117/blob/master/02_QC_trimming.md) (__Jenni__) |
 | __Wednesday__ |  Read QC and trimming [QC](https://github.com/jjholsa/MMB-117/blob/master/02_QC_trimming.md)(__Jenni__) |
-| __Thursday__ |  Taxonomy, OTU analysis [OTUs_bacteria](https://github.com/jjholsa/MMB-117/blob/master/03_Joining reads_filtering_OTUs.md) (__Jenni__)|
+| __Thursday__ |  Taxonomy, OTU analysis [OTUs_bacteria](https://github.com/jjholsa/MMB-117/blob/master/03_JoiningReads_filtering_OTUs.md) (__Jenni__)|
 | __Friday__ | Basic analysis in R (__Jenni__) |
 | __Week 2__ |  |
 | __Monday__ |  Working with own data (__Jenni__) |
